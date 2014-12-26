@@ -1,0 +1,2 @@
+module Api::CurrentUsersHelper
+end

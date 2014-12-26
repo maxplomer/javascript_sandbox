@@ -5,6 +5,12 @@ JavascriptSandbox::Application.routes.draw do
   resource :session, :only => [:create, :destroy, :new]
   resources :users, :only => [:create, :new, :show]
     
+  namespace :api, :defaults => { :format => :json } do
+    resource :session, only: [:create, :destroy]
+    resources :users, only: [:create]
+    resource :current_user, only: [:show]
+  end
+
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
