@@ -1,0 +1,17 @@
+/* remove bullet */
+ul {
+  list-style: none;
+}
+
+/* default font that will inherit */
+body {
+  font-family: sans-serif;
+}
+
+/* UTILS */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}

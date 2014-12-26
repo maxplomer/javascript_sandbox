@@ -18,3 +18,22 @@ group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
 end
+
+backbone:
+
+add:
+gem 'backbone-on-rails'
+
+#Generating basic js/backbone functionality
+rails generate backbone:install --javascript
+
+#Generating Company model functionality
+rails generate backbone:scaffold Company --javascript
+
+remove //= require turbolinks
+
+
+custom css
+
+
+add rails12_factor gem, add precompile assets in production.rb, add custom.css tag to head

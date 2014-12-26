@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Sandbox</title>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>    
+
+    <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+    <%= stylesheet_link_tag 'custom.css' %>
+    <%= csrf_meta_tags %>
+    
+</head>
+<body>
+
+<header>
+  <nav class="group">
+    <div id='navbar'></div>
+  </nav>
+</header>
+
+
+
+<div id="content"></div>
+  
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+    JavascriptSandbox.initialize();
+  });
+</script>
+
+<script type="text/javascript">
+  window.currentUser = {};
+    //window.currentUser = {
+    //    id : "<%#= current_user.id %>",
+    //    email : "<%#= current_user.email %>"
+    //}
+</script>
+
+</body>
+</html>
