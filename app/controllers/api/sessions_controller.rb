@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
     if @user
-      login!(@user)
+      sign_in(@user)
       render json: {'status' => 'ok'}
     else
       render json: {'error' => 'invalid username/password combo'}, status: :unprocessable_entity

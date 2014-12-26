@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save!
-    login!(@user)
+    sign_in(@user)
     render json: @user
   end
 
