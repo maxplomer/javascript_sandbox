@@ -18,7 +18,7 @@ JavascriptSandbox.Views.Login = Backbone.View.extend({
       dataType: 'json',
       data: userAttrs,
       success: function (data, status) {
-        Backbone.history.navigate('#'); //later forward to user show
+        Backbone.history.navigate('#', { trigger: true }); //later forward to user show
       },
       error: function (response, status) {
         this.$el.prepend(response.responseText);

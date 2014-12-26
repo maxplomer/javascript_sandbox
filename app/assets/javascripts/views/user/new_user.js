@@ -15,7 +15,7 @@ JavascriptSandbox.Views.NewUser = Backbone.View.extend({
     var userAttrs = this.$el.find('form').serializeJSON();
     this.model.save(userAttrs, {
       success: function () {
-        Backbone.history.navigate('#') 
+        Backbone.history.navigate('#', { trigger: true }) 
       }.bind(this)
     });
   },
