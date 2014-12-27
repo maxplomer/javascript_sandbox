@@ -7,6 +7,15 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
+  has_many(
+    :fiddles,
+    class_name: "Fiddle",
+    foreign_key: :user_id,
+    dependent: :destroy
+  )
+
+  # auth
+
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
     user.try(:is_password?, password) ? user : nil
