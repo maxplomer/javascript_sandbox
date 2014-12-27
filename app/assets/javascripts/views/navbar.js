@@ -12,7 +12,7 @@ JavascriptSandbox.Views.Navbar = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  logIn: function () {
+  signIn: function () {
     Backbone.history.navigate('#/login', { trigger: true });
   },
 
@@ -35,8 +35,9 @@ JavascriptSandbox.Views.Navbar = Backbone.View.extend({
       url: 'api/session',
       type: 'DELETE',
       dataType: 'json',
-      success: function(result) {
-        Backbone.history.navigate('#', { trigger: true });
+      success: function() {
+        alert("hello");
+        Backbone.history.navigate('#/login', { trigger: true });
       }
     });
   }

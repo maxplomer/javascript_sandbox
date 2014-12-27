@@ -13,7 +13,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    logout!
+    sign_out
     render json: {'status' => 'successfully logged out'}, status: :ok
   end
 end
