@@ -5,7 +5,10 @@ JavascriptSandbox.Views.NewUser = Backbone.View.extend({
   },
 
   render: function () {
-    var content = this.template({ user: this.model });
+    var content = this.template({ 
+      user: this.model,
+      action: 'signup'
+    });
     this.$el.html(content);
     return this;
   },

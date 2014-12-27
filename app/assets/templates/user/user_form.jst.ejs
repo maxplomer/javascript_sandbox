@@ -1,5 +1,9 @@
 <div class="form">
-  <h1>Sign Up</h1>
+  <% if (action == "login") { %>
+    <h1>Sign In</h1>
+  <% } else { %>
+    <h1>Sign Up</h1>
+  <% } %>
 
   <form role="form">
     <div class="form-group">
@@ -20,6 +24,12 @@
              placeholder="password"
              tabindex="2">
     </div>
-    <button id="submit">Sign Up</button>
+
+    <% if (action == "login") { %>
+      <button id="submit">Sign In</button>
+    <% } else { %>
+      <button id="submit">Sign Up</button>
+    <% } %>
+    
   </form>
 </div>

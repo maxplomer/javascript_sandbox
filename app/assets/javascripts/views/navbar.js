@@ -36,7 +36,6 @@ JavascriptSandbox.Views.Navbar = Backbone.View.extend({
       type: 'DELETE',
       dataType: 'json',
       success: function() {
-        alert("hello");
         Backbone.history.navigate('#/login', { trigger: true });
       }
     });

@@ -15,3 +15,5 @@ body {
   display: block;
   clear: both;
 }
+
+a { cursor: pointer; }

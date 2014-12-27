@@ -1,10 +1,14 @@
 JavascriptSandbox.Views.Login = Backbone.View.extend({
+
   events: {
     'click #submit': 'login'
   },
 
   render: function () {
-    var content = this.template({ user: this.model, action: 'login' });
+    var content = this.template({ 
+      user: this.model, 
+      action: 'login' 
+    });
     this.$el.html(content);
     return this;
   },
