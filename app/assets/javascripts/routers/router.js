@@ -10,17 +10,20 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
   },
 
   home: function () {
+    navbar();
     var homeView = new JavascriptSandbox.Views.Home();
     this._swapView(homeView);
   },
 
   login: function () {
+    navbar();
     var user = new JavascriptSandbox.Models.User();
     var loginView = new JavascriptSandbox.Views.Login({ model: user });
     this._swapView(loginView);
   },
 
   newUser: function () {
+    navbar();
     var newUser = new JavascriptSandbox.Models.User();
     var newUserView = new JavascriptSandbox.Views.NewUser({ model: newUser });
     this._swapView(newUserView);

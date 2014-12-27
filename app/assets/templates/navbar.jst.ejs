@@ -1,0 +1,12 @@
+<h2>JavaScript Sandbox dot com navbar</h2>
+
+<% if (current_user.attributes.email) { %>
+  <%= current_user.escape('email') %>
+  <a class="sign-out">Sign Out</a>
+<% } else { %>
+  <a class="sign-up">Sign Up</a>
+  <a class="sign-in">Sign In</a>
+<% } %>
+
+<hr>
+

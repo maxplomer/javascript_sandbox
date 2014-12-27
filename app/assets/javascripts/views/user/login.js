@@ -11,6 +11,7 @@ JavascriptSandbox.Views.Login = Backbone.View.extend({
 
   login: function (event) {
     event.preventDefault();
+    var that = this;
     var userAttrs = this.$el.find('form').serializeJSON();
     $.ajax({
       type: "POST",
@@ -21,8 +22,8 @@ JavascriptSandbox.Views.Login = Backbone.View.extend({
         Backbone.history.navigate('#', { trigger: true }); //later forward to user show
       },
       error: function (response, status) {
-        this.$el.prepend(response.responseText);
-      }.bind(this)
+        that.$el.prepend(response.responseText);
+      }
     });
   },
 

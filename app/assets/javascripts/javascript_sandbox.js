@@ -18,7 +18,15 @@ window.JavascriptSandbox = {
 // });
 
 
-
+function navbar () {
+  var current_user = new JavascriptSandbox.Models.CurrentUser();
+  current_user.fetch();
+  var $navbar = $('#navbar');
+  var navbarView = new JavascriptSandbox.Views.Navbar({
+    model: current_user 
+  });
+  $navbar.html(navbarView.render().$el);
+}
 
 
 

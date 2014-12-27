@@ -12,11 +12,15 @@ JavascriptSandbox.Views.NewUser = Backbone.View.extend({
 
   signUp: function (event) {
     event.preventDefault();
+    var that = this;
     var userAttrs = this.$el.find('form').serializeJSON();
     this.model.save(userAttrs, {
       success: function () {
         Backbone.history.navigate('#', { trigger: true }) 
-      }.bind(this)
+      },
+      error: function (response, status) {
+        that.$el.prepend(response.responseText);
+      }
     });
   },
 
