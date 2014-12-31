@@ -21,4 +21,4 @@ JavascriptSandbox.Collections.Fiddles = Backbone.Collection.extend({
 
 });
 
-FinanceClone.Collections.fiddles = new FinanceClone.Collections.Fiddles();
+JavascriptSandbox.Collections.fiddles = new JavascriptSandbox.Collections.Fiddles();

@@ -12,9 +12,16 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
 
   newFiddle: function () {
     navbar();
+    var current_user = new JavascriptSandbox.Models.CurrentUser();
+    current_user.fetch();
     var newFiddle = new JavascriptSandbox.Models.Fiddle();
+
+    //need to send 2 models!!!
+    var model = new Backbone.Model();
+    model.set({fiddle: newFiddle, current_user: current_user});
+
     var fiddleFormView = new JavascriptSandbox.Views.FiddleForm({
-      modle: newFiddle
+      model: model 
     });
     this._swapView(fiddleFormView);
   },

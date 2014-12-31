@@ -6,6 +6,7 @@ JavascriptSandbox::Application.routes.draw do
   resources :users, :only => [:create, :new, :show]
     
   namespace :api, :defaults => { :format => :json } do
+    resources :fiddles, :only => [:show, :index, :create]
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create]
     resource :current_user, only: [:show]

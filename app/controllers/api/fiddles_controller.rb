@@ -12,7 +12,7 @@ class Api::FiddlesController < ApplicationController
 
   def create
     @fiddle = Fiddle.new(
-      user_id: current_user.id,
+      user_id: params["user_id"],
       method_string: params["method_string"]
     )
 
