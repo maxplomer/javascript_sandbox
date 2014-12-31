@@ -8,13 +8,21 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
   },
 
   initialize: function () {
-    var fiddle = this.model.attributes.fiddle;
-    alert(fiddle);
+    require(['ace/ace', 'ace/mode/html'], function(ace, html) {
+      var editor = ace.edit("editor");
+      var HtmlMode = html.Mode;
+      editor.getSession().setMode(new HtmlMode());
+      var textarea = $('textarea[name="fiddle[method_string]"]').hide();
+      editor.getSession().setValue(textarea.val());
+      editor.getSession().on('change', function(){
+        textarea.val(editor.getSession().getValue());
+      });
+    });
   },
 
   render: function () {
     var renderedContent = this.template({
-      fiddle: this.model.fiddle
+      fiddle: this.model.attributes.fiddle
     });
     this.$el.html(renderedContent);
     return this;
