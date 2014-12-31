@@ -16,9 +16,33 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
     current_user.fetch();
     var newFiddle = new JavascriptSandbox.Models.Fiddle();
 
+    var template = 
+      "<!doctype html>\n" +
+      "<html>\n" +
+      "<head>\n" +
+      "<script type='text/javascript' src='https://code.jquery.com/jquery-2.1.1.js'></script>\n" +
+      "<style>\n" +
+      "/* Insert CSS here */\n\n" +
+      "</style>\n" +
+      "</head>\n" +
+      "<body>\n" +
+      "<!-- Insert HTML here -->\n\n" +
+      "<script language='JavaScript'>\n" +
+      "// Insert JavaScript here\n\n" +
+      "</script>\n" +
+      "</body>\n" +
+      "</html>\n";
+
+    newFiddle.set({
+      method_string: template
+    });
+
     //need to send 2 models!!!
     var model = new Backbone.Model();
-    model.set({fiddle: newFiddle, current_user: current_user});
+    model.set({
+      fiddle: newFiddle, 
+      current_user: current_user
+    });
 
     var fiddleFormView = new JavascriptSandbox.Views.FiddleForm({
       model: model 
