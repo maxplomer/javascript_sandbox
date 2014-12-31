@@ -5,7 +5,7 @@
   <% } else { %>
     <% fiddles.forEach(function (fiddle) { %>
       <div class="fiddle-item">
-        <a href="#/fiddles/<%= fiddle.id %>"><%= fiddle.escape('id') %></a>
+        <a href="#/fiddles/<%= fiddle.id %>">Sandbox <%= fiddle.escape('id') %></a>
       </div>
     <% }) %>
   <% } %>

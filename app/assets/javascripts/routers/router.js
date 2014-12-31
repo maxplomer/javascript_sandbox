@@ -7,7 +7,27 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
     '': 'fiddlesIndex',
     'users/new': 'newUser',
     'login': 'login',
-    'fiddles/new': 'newFiddle'
+    'fiddles/new': 'newFiddle',
+    'fiddles/:id': 'showFiddle'
+  },
+
+  showFiddle: function (id) {
+    navbar();
+    var current_user = new JavascriptSandbox.Models.CurrentUser();
+    current_user.fetch();
+    var fiddle = JavascriptSandbox.Collections.fiddles.getOrFetch(id);
+
+    //need to send 2 models!!!
+    var model = new Backbone.Model();
+    model.set({
+      fiddle: fiddle, 
+      current_user: current_user
+    });
+
+    var fiddleFormView = new JavascriptSandbox.Views.FiddleForm({
+      model: model 
+    });
+    this._swapView(fiddleFormView);
   },
 
   fiddlesIndex: function () {

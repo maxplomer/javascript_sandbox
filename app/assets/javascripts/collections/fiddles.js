@@ -2,6 +2,9 @@ JavascriptSandbox.Collections.Fiddles = Backbone.Collection.extend({
   model: JavascriptSandbox.Models.Fiddle,
   url: '/api/fiddles',
 
+  comparator: function(fiddle) {
+    return -fiddle.get('id');
+  },
 
   getOrFetch: function (id) {
     var fiddles = this;
