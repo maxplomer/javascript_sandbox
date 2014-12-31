@@ -4,10 +4,19 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    '': 'home',
+    '': 'fiddlesIndex',
     'users/new': 'newUser',
     'login': 'login',
     'fiddles/new': 'newFiddle'
+  },
+
+  fiddlesIndex: function () {
+    navbar();
+    JavascriptSandbox.Collections.fiddles.fetch();
+    var fiddlesIndexView = new JavascriptSandbox.Views.FiddlesIndex({
+      collection: JavascriptSandbox.Collections.fiddles
+    });
+    this._swapView(fiddlesIndexView);
   },
 
   newFiddle: function () {
@@ -48,12 +57,6 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
       model: model 
     });
     this._swapView(fiddleFormView);
-  },
-
-  home: function () {
-    navbar();
-    var homeView = new JavascriptSandbox.Views.Home();
-    this._swapView(homeView);
   },
 
   login: function () {
