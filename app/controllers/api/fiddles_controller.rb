@@ -23,4 +23,16 @@ class Api::FiddlesController < ApplicationController
     end
   end
 
+  def update
+    @fiddle = Fiddle.find(params[:id])
+
+    @fiddle.update_attributes(method_string: params["method_string"])
+
+    if @fiddle.save
+      render json: @fiddle
+    else
+      render :json => @fiddle.errors, :status => :unprocessable_entity
+    end
+  end
+
 end
