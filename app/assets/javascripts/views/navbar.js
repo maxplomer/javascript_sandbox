@@ -12,14 +12,6 @@ JavascriptSandbox.Views.Navbar = Backbone.View.extend({
     this.listenTo(this.model, 'sync', this.render);
   },
 
-  signIn: function () {
-    Backbone.history.navigate('#/login', { trigger: true });
-  },
-
-  signUp: function () {
-    Backbone.history.navigate('#/users/new', { trigger: true });
-  },
-
   render: function () {
     var renderedContent = this.template({ 
       current_user: this.model 
