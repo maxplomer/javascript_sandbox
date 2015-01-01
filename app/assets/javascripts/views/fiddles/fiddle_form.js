@@ -8,7 +8,11 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
   },
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.attributes.fiddle, "sync", this.render);
+    this.listenTo(this.model.attributes.current_user, "sync", this.render);
+  },
+
+  render: function () {
     require(['ace/ace', 'ace/mode/html'], function(ace, html) {
       var editor = ace.edit("editor");
       var HtmlMode = html.Mode;
@@ -19,11 +23,8 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
         textarea.val(editor.getSession().getValue());
       });
     });
-  },
-
-  render: function () {
     var renderedContent = this.template({
-      fiddle: this.model.attributes.fiddle
+      model: this.model.attributes
     });
     this.$el.html(renderedContent);
     return this;
@@ -34,9 +35,6 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
     var fiddle = this.model.attributes.fiddle;
     var current_user = this.model.attributes.current_user;
     var user_id = current_user.attributes.id;
-    
-    var fiddle_user_id = fiddle.attributes.user_id;
-    if (fiddle_user_id && fiddle_user_id !== user_id) return;
 
     var params = $(event.currentTarget).serializeJSON();
     var method_string = params["fiddle"]["method_string"];

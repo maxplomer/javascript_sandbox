@@ -1,3 +1,6 @@
+<% var fiddle = model.fiddle %>
+<% var current_user = model.current_user %>
+
 <section id="output">
   <iframe></iframe>
 </section>
@@ -8,6 +11,8 @@
 
 <div id="editor"></div>
 <br>
-
-<input type="submit" value="Save" form="codeform">
+<% var fiddle_user_id = fiddle.attributes.user_id %>
+<% if ( (typeof fiddle_user_id === "undefined") || ( fiddle_user_id === current_user.id)  ) { %>
+  <input type="submit" value="Save" form="codeform">
+<% } %>
 <button id="mybutton">Render</button>
