@@ -12,7 +12,10 @@
 <div id="editor"></div>
 <br>
 <% var fiddle_user_id = fiddle.attributes.user_id %>
-<% if ( (typeof fiddle_user_id === "undefined") || ( fiddle_user_id === current_user.id)  ) { %>
-  <input type="submit" value="Save" form="codeform">
+
+<% if ( current_user.id ) { %>
+  <% if ( (typeof fiddle_user_id === "undefined") || ( fiddle_user_id === current_user.id)  ) { %>
+    <input type="submit" value="Save" form="codeform">
+  <% } %>
 <% } %>
 <button id="mybutton">Render</button>
