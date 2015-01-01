@@ -2,6 +2,10 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
 
   template: JST['fiddles/fiddle_form'],
 
+  initialize: function () {
+    this.listenTo(this.model, "sync", this.render);
+  },
+
   events: {
     "submit #codeform": "submit",
     "click #mybutton": "updateIframe"
@@ -22,7 +26,8 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      fiddle: this.model.attributes.fiddle
+      fiddle: this.model.attributes.fiddle,
+      current_user: this.model.attributes.current_user
     });
     this.$el.html(renderedContent);
     return this;
