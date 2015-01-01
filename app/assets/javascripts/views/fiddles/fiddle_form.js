@@ -2,16 +2,13 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
 
   template: JST['fiddles/fiddle_form'],
 
-  initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
-  },
-
   events: {
     "submit #codeform": "submit",
     "click #mybutton": "updateIframe"
   },
 
   initialize: function () {
+    this.listenTo(this.model, "sync", this.render);
     require(['ace/ace', 'ace/mode/html'], function(ace, html) {
       var editor = ace.edit("editor");
       var HtmlMode = html.Mode;

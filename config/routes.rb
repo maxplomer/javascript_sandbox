@@ -10,6 +10,7 @@ JavascriptSandbox::Application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :users, only: [:create]
     resource :current_user, only: [:show]
+    resource :current_user_fiddles, only: [:show]
   end
 
 end

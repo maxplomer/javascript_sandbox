@@ -13,6 +13,14 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
   },
 
   userShow: function () {
+    navbar();
+    var current_user_fiddles = new JavascriptSandbox.Models.CurrentUserFiddles();
+    current_user_fiddles.fetch();
+
+    var userShowView = new JavascriptSandbox.Views.UserShow({
+      model: current_user_fiddles 
+    });
+    this._swapView(userShowView);
 
   },
 

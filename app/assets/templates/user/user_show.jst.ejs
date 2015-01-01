@@ -1,0 +1,13 @@
+<h1>My Sandboxes</h1>
+<% console.log(Object.keys(fiddles).length) %>
+<div class="fiddles-container">
+  <% if (Object.keys(fiddles).length === 0) { %>
+    <%= 'There are no sandboxes! :(' %>
+  <% } else { %>
+    <% for (var i=0; i<Object.keys(fiddles).length; i++) { %>
+      <div class="fiddle-item">
+        <a href="#/fiddles/<%= fiddles[i].id %>">Sandbox <%= fiddles[i].id %></a>
+      </div>
+    <% } %>
+  <% } %>
+</div>
