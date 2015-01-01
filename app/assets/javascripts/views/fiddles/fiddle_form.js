@@ -26,8 +26,7 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
 
   render: function () {
     var renderedContent = this.template({
-      fiddle: this.model.attributes.fiddle,
-      current_user: this.model.attributes.current_user
+      fiddle: this.model.attributes.fiddle
     });
     this.$el.html(renderedContent);
     return this;
@@ -38,6 +37,9 @@ JavascriptSandbox.Views.FiddleForm = Backbone.View.extend({
     var fiddle = this.model.attributes.fiddle;
     var current_user = this.model.attributes.current_user;
     var user_id = current_user.attributes.id;
+    
+    var fiddle_user_id = fiddle.attributes.user_id;
+    if (fiddle_user_id && fiddle_user_id !== user_id) return;
 
     var params = $(event.currentTarget).serializeJSON();
     var method_string = params["fiddle"]["method_string"];

@@ -8,7 +8,12 @@ JavascriptSandbox.Routers.Router = Backbone.Router.extend({
     'users/new': 'newUser',
     'login': 'login',
     'fiddles/new': 'newFiddle',
-    'fiddles/:id': 'showFiddle'
+    'fiddles/:id': 'showFiddle',
+    'myfiddles': 'userShow'
+  },
+
+  userShow: function () {
+
   },
 
   showFiddle: function (id) {
