@@ -4,8 +4,7 @@ JavascriptSandbox.Views.Navbar = Backbone.View.extend({
 
   events: {
     'click .sign-out': 'signOut',
-    'click .sign-in': 'signIn',
-    'click .sign-up': 'signUp'
+    'click .new-sandbox': 'newSandbox'
   },
 
   initialize: function () {
@@ -20,6 +19,10 @@ JavascriptSandbox.Views.Navbar = Backbone.View.extend({
     return this;
   },
 
+  newSandbox: function (event) {
+    event.preventDefault();
+    Backbone.history.navigate('#/sandboxes/new', { trigger: true });
+  },
 
   signOut: function (event) {
     event.preventDefault();
