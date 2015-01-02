@@ -19,7 +19,8 @@ JavascriptSandbox.Views.NewUser = Backbone.View.extend({
     var userAttrs = this.$el.find('form').serializeJSON();
     this.model.save(userAttrs, {
       success: function () {
-        Backbone.history.navigate('#', { trigger: true }) 
+        Backbone.history.navigate('#'); //later forward to user show
+        window.location.reload(); 
       },
       error: function (response, status) {
         that.$el.prepend(response.responseText);
