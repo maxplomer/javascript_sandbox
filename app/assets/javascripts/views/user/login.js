@@ -1,7 +1,14 @@
 JavascriptSandbox.Views.Login = Backbone.View.extend({
 
   events: {
-    'click #submit': 'login'
+    'click #submit': 'login',
+    'click .demo-account': 'demoAccount'
+  },
+
+  demoAccount: function (event) {
+    event.preventDefault();
+    $('#email').val('helloworld');
+    $('#password').val('helloworld');
   },
 
   render: function () {

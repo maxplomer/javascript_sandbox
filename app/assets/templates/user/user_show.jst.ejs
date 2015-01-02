@@ -1,13 +1,16 @@
-<h1>My Sandboxes</h1>
-
 <div class="fiddles-container">
+  <h1>My Sandboxes</h1>
   <% if (Object.keys(fiddles).length === 0) { %>
     <%= 'There are no sandboxes! :(' %>
   <% } else { %>
-    <% for (var i=0; i<Object.keys(fiddles).length; i++) { %>
-      <div class="fiddle-item">
-        <a href="#/fiddles/<%= fiddles[i].id %>">Sandbox <%= fiddles[i].id %></a>
-      </div>
-    <% } %>
+    <table class="table table-condensed">
+      <% for (var i=0; i<Object.keys(fiddles).length; i++) { %>
+        <tr>
+          <td>
+            <a href="#/fiddles/<%= fiddles[i].id %>">Sandbox <%= fiddles[i].id %></a>
+          </td>
+        </tr>
+      <% } %>
+    </table>
   <% } %>
 </div>

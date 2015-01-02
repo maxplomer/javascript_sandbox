@@ -39,3 +39,20 @@ a { cursor: pointer; }
   margin: auto;
   width: 400px;
 }
+
+
+
+/* static backbone page */
+
+.fiddles-container {
+  margin: auto;
+  width: 320px;
+  text-align: center;
+}
+
+#content {
+  padding-left: 20px;
+}
+
+
+

@@ -1,12 +1,16 @@
-<h1>All Sandboxes</h1>
 <div class="fiddles-container">
+  <h1>All Sandboxes</h1>
   <% if (fiddles.length === 0) { %>
     <%= 'There are no sandboxes! :(' %>
   <% } else { %>
-    <% fiddles.forEach(function (fiddle) { %>
-      <div class="fiddle-item">
-        <a href="#/fiddles/<%= fiddle.id %>">Sandbox <%= fiddle.escape('id') %></a>
-      </div>
-    <% }) %>
+    <table class="table table-condensed">
+      <% fiddles.forEach(function (fiddle) { %>
+        <tr>
+          <td>
+            <a href="#/fiddles/<%= fiddle.id %>">Sandbox <%= fiddle.escape('id') %></a>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
   <% } %>
 </div>
