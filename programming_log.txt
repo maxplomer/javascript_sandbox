@@ -42,3 +42,7 @@ add rails12_factor gem, add precompile assets in production.rb, add custom.css t
 
 
 removed turbolinks from application.js to fix backbone.history error
+
+
+
+heroku restart
