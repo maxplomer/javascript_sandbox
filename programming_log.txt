@@ -46,3 +46,7 @@ removed turbolinks from application.js to fix backbone.history error
 
 
 heroku restart
+
+
+
+rake tmp:cache:clear

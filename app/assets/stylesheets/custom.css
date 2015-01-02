@@ -24,10 +24,12 @@ a { cursor: pointer; }
 .fiddle-form {
   width: 1250px;
   margin: auto;
+  height: 700px;
 }
 
 .fiddle-form-height {
   height: 600px;
+  overflow:hidden;
 }
 
 #editor {
