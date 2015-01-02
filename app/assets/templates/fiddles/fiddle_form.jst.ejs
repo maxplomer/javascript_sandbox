@@ -1,21 +1,27 @@
-<% var fiddle = model.fiddle %>
-<% var current_user = model.current_user %>
+<div class="fiddle-form">
+  <div class="fiddle-form-height">
 
-<section id="output">
-  <iframe></iframe>
-</section>
+    <% var fiddle = model.fiddle %>
+    <% var current_user = model.current_user %>
 
-<form id="codeform">
-  <textarea class="text" id="mycode" name="fiddle[method_string]"><%= fiddle.escape("method_string") %></textarea>
-</form>
+    <form id="codeform">
+      <textarea class="text" id="mycode" name="fiddle[method_string]"><%= fiddle.escape("method_string") %></textarea>
+    </form>
 
-<div id="editor"></div>
-<br>
-<% var fiddle_user_id = fiddle.attributes.user_id %>
+    <div id="editor"></div>
 
-<% if ( current_user.id ) { %>
-  <% if ( (typeof fiddle_user_id === "undefined") || ( fiddle_user_id === current_user.id)  ) { %>
-    <input type="submit" value="Save" form="codeform" class="btn btn-primary" tabindex="3">
+    <section id="output">
+      <iframe></iframe>
+    </section>
+  </div>
+  <br>
+  <% var fiddle_user_id = fiddle.attributes.user_id %>
+
+  <% if ( current_user.id ) { %>
+    <% if ( (typeof fiddle_user_id === "undefined") || ( fiddle_user_id === current_user.id)  ) { %>
+      <input type="submit" value="Save" form="codeform" class="btn btn-primary" tabindex="3">
+    <% } %>
   <% } %>
-<% } %>
-<button id="mybutton" class="btn btn-primary" tabindex="3" onclick="this.blur();">Render</button>
+  <button id="mybutton" class="btn btn-primary" tabindex="3" onclick="this.blur();">Render</button>
+
+</div>

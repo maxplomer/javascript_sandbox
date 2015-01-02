@@ -21,6 +21,15 @@ a { cursor: pointer; }
 
 /* Fiddle page */
 
+.fiddle-form {
+  width: 1250px;
+  margin: auto;
+}
+
+.fiddle-form-height {
+  height: 600px;
+}
+
 #editor {
   position: relative;
   width: 650px;
@@ -29,11 +38,15 @@ a { cursor: pointer; }
 }
 
 #output iframe {
-  position: absolute;
+  position: relative;
   width: 550px;
   height: 600px;
   left: 700px;
+  top: -600px;
 }
+
+
+/* user signup page */
 
 .form {
   margin: auto;
