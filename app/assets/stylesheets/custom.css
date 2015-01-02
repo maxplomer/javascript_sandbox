@@ -34,3 +34,8 @@ a { cursor: pointer; }
   height: 600px;
   left: 700px;
 }
+
+.form {
+  margin: auto;
+  width: 400px;
+}
